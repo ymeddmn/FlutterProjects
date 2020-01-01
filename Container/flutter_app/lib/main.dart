@@ -42,12 +42,11 @@ class _MyHomePageState extends State<MyHomePage> {
           alignment: Alignment.center,
           //设置Container内部child的位置
           decoration: BoxDecoration(
-              border: Border.all(width: 5, color: Colors.red),
-              color: Colors.grey,
-              borderRadius: BorderRadius.all(Radius.circular(20)),
-              image: DecorationImage(image: NetworkImage("https://dss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2032467668,2180843216&fm=26&gp=0.jpg"))
+            gradient: RadialGradient(
+              colors: [Colors.red, Colors.green],
+              center: Alignment.bottomLeft//这个属性设置颜色渐变的方向
+            ),
           ),
-
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );

@@ -38,16 +38,19 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Container(
           width: 300,
           height: 300,
-          padding: EdgeInsets.all(10),
           alignment: Alignment.center,
-          //设置Container内部child的位置
-          decoration: BoxDecoration(
-              border: Border.all(width: 5, color: Colors.red),
-              color: Colors.grey,
-              borderRadius: BorderRadius.all(Radius.circular(20)),
-              image: DecorationImage(image: NetworkImage("https://dss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2032467668,2180843216&fm=26&gp=0.jpg"))
+          child: Container(
+            color: Colors.yellow,
           ),
-
+          decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: Colors.red,
+                offset: Offset(2, 2),
+                blurRadius: 3
+              )
+            ]
+          ),
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );

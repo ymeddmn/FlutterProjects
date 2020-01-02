@@ -27,20 +27,23 @@ class HomeState extends State<HomePage> {
     return Scaffold(
       body: Center(
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,//关键代码
           children: <Widget>[
-            Expanded(
-              child: Container(
-                color: Colors.red,
-              ),
+            Container(
+              color: Colors.red,
+              child: Text("红色"),
+              height: 100,
             ),
-            Expanded(
-              child: Container(color: Colors.yellow),
+            Container(
+              color: Colors.yellow,
+              child: Text("黄色"),
+              height: 100,
             ),
-            Expanded(
-                child: Container(
+            Container(
               color: Colors.green,
-            ))
+              child: Text("绿色"),
+              height: 100,
+            )
           ],
         ),
       ),

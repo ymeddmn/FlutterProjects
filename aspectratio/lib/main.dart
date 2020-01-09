@@ -39,9 +39,22 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(
               height: 100,
               color: Colors.green,
-              child: AspectRatio(//改变的是父widget的长宽
-                aspectRatio: 3,//长宽比
+              child: AspectRatio(
+                //改变的是父widget的长宽
+                aspectRatio: 3, //长宽比
                 child: Container(
+                  child: Text("长宽3比1"),
+                ),
+              ),
+            ),
+            Container(
+              width: 100,
+              color: Colors.green,
+              child: AspectRatio(
+                //改变的是父widget的长宽
+                aspectRatio: 1/3, //长宽比
+                child: Container(
+                  child: Text("长宽1比3"),
                 ),
               ),
             )

@@ -26,15 +26,20 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage>
     with SingleTickerProviderStateMixin {
   AnimationController _controller;
+  CurvedAnimation curve;
+
+  Animation<double> animation;
 
   @override
   void initState() {
     super.initState();
     _controller = AnimationController(
-        vsync: this,
-        duration: Duration(milliseconds: 5000),
-        lowerBound: 0,
-        upperBound: 2);
+      vsync: this,
+      duration: Duration(milliseconds: 5000),
+    );
+    curve = CurvedAnimation(parent: _controller, curve: Curves.bounceInOut);
+    var tween = Tween<double>(begin: 0, end: 3.14/18);//这里的begin和end是一帧动画移动的角度
+    animation = tween.animate(_controller);//顺时针移动，按照tween设置的参数进行旋转
   }
 
   @override
@@ -47,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage>
         child: Column(
           children: <Widget>[
             RotationTransition(
-              turns: _controller,
+              turns: animation,
               child: Container(
                 width: 200,
                 height: 200,
@@ -56,6 +61,7 @@ class _MyHomePageState extends State<MyHomePage>
             ),
             RaisedButton(
               onPressed: () {
+                _controller.reset();
                 _controller.forward();
               },
               child: Text('点击开始动画'),

@@ -31,6 +31,8 @@ class MyHomeState extends State<MyHomePage>
   AnimationController _controller;
   Animation<RelativeRect> _animation;
 
+  CurvedAnimation curvedAnimation;
+
   @override
   void deactivate() {
     super.deactivate();
@@ -42,10 +44,9 @@ class MyHomeState extends State<MyHomePage>
     _controller = AnimationController(
         duration: Duration(milliseconds: 3000), vsync: this);
     var tween = RelativeRectTween(
-        begin: RelativeRect.fromLTRB(100, 300, 100, 300),
-        end: RelativeRect.fromLTRB(150, 200, 150, 200));
+        begin: RelativeRect.fromLTRB(100, 200, 200, 200),
+        end: RelativeRect.fromLTRB(100, 200, 0, 200));
 //    RelativeReact.fromLTRB的四个参数分别是边框距离左上右下的距离
-    _animation = tween.animate(_controller);
     _controller
       ..addStatusListener((status) {
         if (status == AnimationStatus.completed) {
@@ -54,6 +55,8 @@ class MyHomeState extends State<MyHomePage>
           _controller.forward();
         }
       });
+     curvedAnimation = CurvedAnimation(parent: _controller,curve: Curves.bounceIn);
+    _animation = tween.animate(curvedAnimation);
     _controller.forward();
   }
 

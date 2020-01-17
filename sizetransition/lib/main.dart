@@ -41,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage>
           _controller.forward();
         }
       });
-    _animation = Tween<double>(begin: 0, end: 1).animate(_controller);//这里的值必须是0-1之间
+    _animation = Tween<double>(begin: 0.3, end: 1).animate(_controller);//这里的值必须是0-1之间
     _controller.forward();
   }
 
@@ -57,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage>
           sizeFactor: _animation,
           child: Container(
             width: 100,
-            height: 100,
+            height: 300,
             color: Colors.green,
           ),
         ),
